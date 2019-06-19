@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:include="header :: header"></head>
+<body>
+<div th:include="navbar :: navbar"></div>
+<div class="container">
+
+    <div class="row">
+        <div th:include="messages :: messages"></div>
+        <form class="col s12" action="/participantes" method="post">
+            <input hidden name="evento" th:value="${param.evento}"/>
+            <input hidden name="id" th:value="${item.id}"/>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input th:value="${item.nome}" placeholder="Nome do participante" id="pr" name="nome"
+                           type="text" required class="validate" maxlength="50" minlength="5"/>
+                    <label for="pr">Nome</label>
+                </div>
+                <div class="input-field col s12">
+                    <input th:value="${{item.dtNascimento}}" id="dtNascimento" name="dtNascimento" type="text" class="datepicker" required>
+                    <label for="dtNascimento">Data Nascimento</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input th:value="${item.empresa}" id="empresa" type="text" name="empresa" required>
+                    <label for="empresa">Empresa</label>
+                </div>
+                <div class="input-field col s6">
+                    <input th:value="${item.email}" id="email" type="text" name="email"
+                           required>
+                    <label for="email">Email</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input type="text" name="cpf" id="cpf" th:value="${item.cpf}" required>
+                    <label for="cpf">CPF</label>
+                </div>
+            </div>
+            <div class="row">
+                <button class="btn waves-effect waves-light right" type="submit" name="action">Salvar
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div th:include="footer :: footer"></div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        let elems = document.querySelectorAll('.datepicker');
+        let options = {
+            format: 'dd/mm/yyyy'
+        };
+        M.Datepicker.init(elems, options);
+    });
+</script>
+</body>
+</html>

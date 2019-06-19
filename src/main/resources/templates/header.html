@@ -1,0 +1,16 @@
+<head th:fragment="header" xmlns:th="http://www.w3.org/1999/xhtml">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title th:text="${title} ?: 'Titulo'"></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+       footer{
+           position: relative;
+           bottom: 0;
+           width: 100%;
+       }
+        .container{
+            position: relative; min-height: 100vh;
+        }
+    </style>
+</head>

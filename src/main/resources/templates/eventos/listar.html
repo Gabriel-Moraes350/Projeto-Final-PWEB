@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:include="header :: header"></head>
+<body>
+<div th:include="navbar :: navbar"></div>
+<div class="container">
+
+    <div class="row">
+        <div th:include="messages :: messages"></div>
+
+        <table class="striped centered responsive-table">
+            <thead>
+            <tr>
+                <th>Nome do Evento</th>
+                <th>Local do Evento</th>
+                <th>Data e Hora do Evento</th>
+                <th>Editar</th>
+                <th>Participantes</th>
+            </tr>
+            </thead>
+            <tbody>
+                <th:block th:each="item : ${items}" >
+                    <tr>
+                        <td th:text="${item.nomeEvento}"></td>
+                        <td th:text="${item.localEvento}"></td>
+                        <td >
+                            <span th:text="${{item.dtEvento}}"></span> -
+                            <span th:text="${{item.hrEvento}}"></span></td>
+                        <td>
+                                <a th:href="@{/eventos/cadastrar(evento=${item.idEvento})}" >
+                                    <i class="material-icons teal-text">edit</i></a>
+                        </td>
+                        <td>
+                            <a th:href="@{/participantes(evento=${item.idEvento})}" >
+                                <i class="material-icons teal-text">person</i></a>
+                        </td>
+                    </tr>
+                </th:block>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div th:include="footer :: footer"></div>
+</body>
+</html>

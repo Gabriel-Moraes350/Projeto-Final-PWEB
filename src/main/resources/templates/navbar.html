@@ -1,0 +1,20 @@
+<div th:fragment="navbar" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#!" class="brand-logo">Projeto PWEB</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a class='dropdown-trigger' href="#" data-target='eventosMenu'>Eventos<i class="material-icons right">arrow_drop_down</i>
+                    </a></li>
+                </ul>
+
+                <ul id='eventosMenu' class='dropdown-content'>
+                    <li><a th:href="@{/eventos/cadastrar}">Cadastrar</a></li>
+                    <li class="divider" tabindex="-1"></li>
+                    <li><a th:href="@{/eventos}">Listar</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+</div>

@@ -1,0 +1,11 @@
+<div th:fragment="messages" xmlns:th="http://www.w3.org/1999/xhtml">
+    <h3 class="teal-text col s12 center-align" th:text="${message}"></h3>
+
+    <th:block th:each="error : ${errors}">
+        <span class="col s12 center-align">
+            Erro - Campo :
+            <span class="deep-orange-text " th:text="${error.message}"></span>
+        </span>
+        <br>
+    </th:block>
+</div>
